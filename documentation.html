@@ -4,190 +4,330 @@
     <meta charset="UTF-8">
     <title>DeforestAI - Documentation</title>
     <style>
-        /* Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+        /* ==========================================================================
+   DeforestAI - World-Class Documentation Stylesheet
+   Theme: Academic & Enterprise Whitepaper (Forest/Emerald Palette)
+   ========================================================================== */
 
-/* Base Styles */
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+/* CSS variables for consistent, premium styling */
+:root {
+    --primary-dark: #022c22;      /* Deep Forest Green */
+    --primary: #064e3b;           /* Rich Emerald Green */
+    --primary-medium: #059669;    /* Medium Emerald */
+    --primary-light: #10b981;     /* Mint Accent */
+    --primary-bg: #ecfdf5;        /* Ultra-light green tint */
+    --bg-slate: #f8fafc;          /* Cool grey-white for cards */
+    --text-main: #1e293b;         /* Charcoal/Slate for body */
+    --text-muted: #64748b;        /* Muted slate for captions */
+    --border-color: #cbd5e1;      /* Light border grey */
+    --border-light: #e2e8f0;      /* Ultra-light border */
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.02);
+    --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.03);
+    --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 16px -8px rgba(0, 0, 0, 0.03);
+}
+
+/* --- Base & Reset Styles --- */
+* {
+    box-sizing: border-box;
+}
+
 body {
     font-family: 'Inter', sans-serif;
-    color: #1f2937;
-    line-height: 1.8;
+    color: var(--text-main);
+    line-height: 1.75;
     margin: 0;
     padding: 0;
     font-size: 11.5pt;
     background-color: #ffffff;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
 }
 
-/* Typography */
-h1, h2, h3, h4, h5 {
+.container {
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 60px 40px;
+}
+
+/* --- Typography --- */
+h1, h2, h3, h4, h5, h6 {
     font-family: 'Outfit', sans-serif;
-    color: #064e3b; /* Premium Dark Emerald */
-    font-weight: 800;
-    margin-top: 2.2em;
-    margin-bottom: 0.6em;
-    letter-spacing: -0.5px;
+    color: var(--primary-dark);
+    font-weight: 700;
+    margin-top: 1.8em;
+    margin-bottom: 0.5em;
+    letter-spacing: -0.02em;
+    page-break-after: avoid;
+    break-after: avoid;
 }
 
 h1 {
-    font-size: 2.5em;
-    border-bottom: 3px solid #10b981;
+    font-size: 2.2em;
+    border-bottom: 2px solid var(--primary-light);
     padding-bottom: 0.3em;
-    display: inline-block;
+    margin-top: 1.2em;
 }
 
 h2 {
-    font-size: 1.8em;
-    color: #047857;
-    border-bottom: 2px solid #6ee7b7;
-    padding-bottom: 0.3em;
-    margin-top: 1.5em;
+    font-size: 1.6em;
+    border-left: 4px solid var(--primary-light);
+    padding-left: 14px;
+    margin-top: 1.6em;
 }
 
 h3 {
-    font-size: 1.4em;
-    color: #059669;
-    font-weight: 700;
+    font-size: 1.25em;
+    color: var(--primary-medium);
+    margin-top: 1.4em;
 }
 
 p {
-    margin-bottom: 1.3em;
-    color: #374151;
+    margin-bottom: 1.2em;
     text-align: justify;
 }
 
 strong {
-    color: #064e3b;
-    font-weight: 700;
-}
-
-/* Cover Page Styles */
-.cover-page {
-    text-align: center;
-    padding-top: 20vh;
-    height: 100vh;
-    box-sizing: border-box;
-}
-
-.cover-page .logo {
-    font-size: 6em;
-    margin-bottom: 0.1em;
-    filter: drop-shadow(0px 10px 10px rgba(16, 185, 129, 0.3));
-}
-
-.cover-page h1 {
-    font-size: 4.5em;
-    color: #064e3b;
-    border-bottom: none;
-    margin: 0;
-    padding: 0;
-    font-weight: 800;
-    letter-spacing: -2px;
-}
-
-.cover-page .subtitle {
-    font-size: 1.6em;
-    color: #059669;
-    margin-top: 0.2em;
-    font-family: 'Outfit', sans-serif;
-    font-weight: 400;
-    letter-spacing: 1px;
-}
-
-/* Golden Award Badge */
-.award-badge {
-    display: inline-block;
-    background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
-    color: #ffffff;
-    padding: 10px 25px;
-    border-radius: 50px;
-    margin-top: 1.5em;
-    box-shadow: 0 10px 25px rgba(245, 158, 11, 0.4);
-    border: 2px solid #fcd34d;
-}
-
-.award-badge .icon {
-    font-size: 1.4em;
-    vertical-align: middle;
-    margin-right: 8px;
-}
-
-.award-badge .text {
-    font-family: 'Outfit', sans-serif;
-    font-size: 1.3em;
-    font-weight: 800;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    text-shadow: 0px 2px 4px rgba(0,0,0,0.2);
-    vertical-align: middle;
-}
-
-.cover-page .divider {
-    width: 80px;
-    height: 6px;
-    background: linear-gradient(90deg, #10b981, #047857);
-    margin: 2.5em auto;
-    border-radius: 3px;
-}
-
-/* Academic & Author Details Layout */
-.cover-info-container {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    margin-top: 2em;
-}
-
-.cover-page .academic-details, .cover-page .authors {
-    background-color: #f8fafc;
-    border: 1px solid #e2e8f0;
-    padding: 25px 35px;
-    border-radius: 12px;
-    display: block;
-    width: 35%;
-    max-width: 400px;
-    margin: 0 auto 1.5em auto;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
-    text-align: center;
-}
-
-.cover-page .academic-details p, .cover-page .authors p {
-    font-size: 1.1em;
-    margin: 0.3em 0;
-    text-align: center;
-    color: #1f2937;
-    line-height: 1.4;
-}
-
-.cover-page .github-link {
-    margin-top: 3em;
-    font-size: 1.1em;
-    color: #6b7280;
-}
-.cover-page .github-link a {
-    color: #10b981;
-    text-decoration: none;
+    color: var(--primary-dark);
     font-weight: 600;
 }
 
-/* Code Blocks */
+/* --- Cover Page Design --- */
+.cover-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 90vh; /* Allow breathing room in print view */
+    box-sizing: border-box;
+    padding: 40px 0;
+    page-break-after: always;
+    break-after: page;
+}
+
+.cover-header {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.cover-logo-container {
+    font-size: 5.5em;
+    margin-bottom: 15px;
+    display: inline-block;
+    filter: drop-shadow(0px 8px 12px rgba(16, 185, 129, 0.25));
+}
+
+.cover-page h1.cover-title {
+    font-size: 4.2em;
+    color: var(--primary-dark);
+    font-weight: 800;
+    margin: 0;
+    padding: 0;
+    border: none;
+    letter-spacing: -0.04em;
+    line-height: 1.1;
+    background: linear-gradient(135deg, var(--primary-dark) 30%, var(--primary-medium) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.cover-page .cover-subtitle {
+    font-size: 1.35em;
+    color: var(--primary-medium);
+    margin-top: 10px;
+    margin-bottom: 0;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.cover-divider {
+    width: 120px;
+    height: 5px;
+    background: linear-gradient(90deg, var(--primary-light), var(--primary-medium));
+    margin: 30px auto;
+    border-radius: 10px;
+}
+
+/* Metadata Section with Custom Cards */
+.cover-info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    margin: 40px 0;
+}
+
+.metadata-card {
+    background-color: var(--bg-slate);
+    border: 1px solid var(--border-light);
+    border-left: 5px solid var(--primary-medium);
+    border-radius: 8px;
+    padding: 24px;
+    box-shadow: var(--shadow-sm);
+}
+
+.metadata-card h3 {
+    margin-top: 0;
+    margin-bottom: 12px;
+    font-size: 1.1em;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--primary);
+    border-bottom: 1px solid var(--border-light);
+    padding-bottom: 6px;
+}
+
+.metadata-card p {
+    margin: 0;
+    font-size: 0.95em;
+    line-height: 1.5;
+    text-align: left;
+    color: var(--text-main);
+}
+
+.metadata-card p + p {
+    margin-top: 8px;
+}
+
+.cover-footer {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.cover-github {
+    display: inline-flex;
+    align-items: center;
+    background-color: var(--primary-bg);
+    border: 1px solid var(--primary-light);
+    padding: 10px 20px;
+    border-radius: 30px;
+    color: var(--primary-dark);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95em;
+    transition: all 0.2s ease;
+}
+
+.cover-github:hover {
+    background-color: var(--primary-light);
+    color: white;
+}
+
+.cover-github-icon {
+    font-size: 1.2em;
+    margin-right: 8px;
+}
+
+.cover-date {
+    font-size: 0.9em;
+    color: var(--text-muted);
+    margin-top: 15px;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 500;
+}
+
+/* --- Table of Contents --- */
+.toc-container {
+    page-break-after: always;
+    break-after: page;
+    padding: 20px 0;
+}
+
+.toc-list {
+    list-style: none;
+    padding: 0;
+    margin: 30px 0;
+}
+
+.toc-item {
+    display: flex;
+    align-items: baseline;
+    margin-bottom: 15px;
+    font-size: 1.05em;
+}
+
+.toc-title {
+    font-weight: 500;
+    color: var(--primary-dark);
+    white-space: nowrap;
+    font-family: 'Outfit', sans-serif;
+}
+
+.toc-dots {
+    flex-grow: 1;
+    border-bottom: 1px dotted var(--border-color);
+    margin: 0 10px;
+    position: relative;
+    top: -4px;
+}
+
+.toc-page {
+    font-weight: 600;
+    color: var(--text-main);
+    font-family: 'JetBrains Mono', monospace;
+}
+
+/* --- Content Styling Accents --- */
+hr {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), var(--border-color), rgba(0, 0, 0, 0));
+    margin: 2.5em 0;
+}
+
+/* Callout Box / Blockquotes */
+.callout-box {
+    background-color: var(--primary-bg);
+    border-left: 5px solid var(--primary-light);
+    border-radius: 0 10px 10px 0;
+    padding: 20px 24px;
+    margin: 2em 0;
+    box-shadow: var(--shadow-sm);
+    break-inside: avoid;
+    page-break-inside: avoid;
+}
+
+.callout-title {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    color: var(--primary-dark);
+    font-size: 1.1em;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+}
+
+.callout-content {
+    margin: 0;
+    font-size: 0.98em;
+    color: var(--primary-dark);
+    text-align: justify;
+}
+
+/* Code Blocks & Terminal Style Pre */
 code {
     font-family: 'JetBrains Mono', monospace;
-    background-color: #ecfdf5;
-    color: #047857;
-    padding: 0.2em 0.4em;
+    background-color: var(--primary-bg);
+    color: var(--primary-dark);
+    padding: 0.15em 0.35em;
     border-radius: 4px;
-    font-size: 0.9em;
-    border: 1px solid #a7f3d0;
+    font-size: 0.88em;
+    border: 1px solid rgba(16, 185, 129, 0.2);
 }
 
 pre {
-    background-color: #0f172a;
+    background-color: #0f172a; /* Slate 900 */
     color: #f8fafc;
-    padding: 1.5em;
-    border-radius: 10px;
+    padding: 20px;
+    border-radius: 8px;
     overflow-x: auto;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow-md);
     border: 1px solid #1e293b;
+    margin: 1.5em 0;
+    break-inside: avoid;
+    page-break-inside: avoid;
 }
 
 pre code {
@@ -195,9 +335,10 @@ pre code {
     color: inherit;
     padding: 0;
     border: none;
+    font-size: 0.9em;
 }
 
-/* Lists */
+/* Lists and Bullet Points */
 ul, ol {
     margin-bottom: 1.5em;
     padding-left: 1.5em;
@@ -205,65 +346,145 @@ ul, ol {
 
 li {
     margin-bottom: 0.6em;
-    color: #374151;
+    color: var(--text-main);
 }
 
 li::marker {
-    color: #10b981;
+    color: var(--primary-medium);
     font-weight: bold;
 }
 
-/* Blockquotes */
-blockquote {
-    border-left: 5px solid #10b981;
-    background-color: #f0fdf4;
-    margin: 2em 0;
-    padding: 1.5em;
-    border-radius: 0 12px 12px 0;
-    color: #064e3b;
-    font-style: italic;
-    font-size: 1.1em;
-    box-shadow: 0 4px 6px rgba(16, 185, 129, 0.05);
-}
-
-/* Footer */
-.footer {
-    margin-top: 5em;
-    text-align: center;
-    font-size: 0.9em;
-    color: #64748b;
-    border-top: 2px solid #e2e8f0;
-    padding-top: 2em;
-    font-family: 'Outfit', sans-serif;
-    font-weight: 500;
-}
-
-/* Images */
-img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-    border: 1px solid #e2e8f0;
-    transition: transform 0.3s ease;
-}
-
+/* --- Screenshot and Image Grids --- */
 .img-container {
     text-align: center;
-    margin: 3em 0;
+    margin: 2.5em 0;
+    break-inside: avoid;
+    page-break-inside: avoid;
 }
 
-.img-container p {
-    text-align: center;
-    color: #64748b;
-    font-size: 0.95em;
-    margin-top: 1em;
+.img-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border-light);
+}
+
+.img-caption {
+    font-size: 0.92em;
+    color: var(--text-muted);
+    margin-top: 10px;
     font-style: italic;
+    text-align: center;
 }
 
-/* PDF Specific Margins (if supported by generator) */
-@page {
-    margin: 2.5cm 2.5cm;
+/* 2-Column Responsive Screenshot Grid */
+.screenshot-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin: 2.5em 0;
+}
+
+.screenshot-card {
+    background-color: var(--bg-slate);
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    padding: 12px;
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    break-inside: avoid;
+    page-break-inside: avoid;
+}
+
+.screenshot-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    border: 1px solid var(--border-light);
+    object-fit: cover;
+}
+
+.screenshot-caption {
+    font-size: 0.85em;
+    color: var(--text-muted);
+    margin-top: 8px;
+    font-style: italic;
+    text-align: center;
+    line-height: 1.4;
+}
+
+/* Last child spans full grid width if odd items exist */
+.screenshot-grid .screenshot-card.span-full {
+    grid-column: span 2;
+}
+
+/* Page Break Divider */
+.page-break {
+    page-break-after: always;
+    break-after: page;
+}
+
+/* Academic Report Footer */
+.document-footer {
+    margin-top: 60px;
+    text-align: center;
+    font-size: 0.85em;
+    color: var(--text-muted);
+    border-top: 1px solid var(--border-light);
+    padding-top: 20px;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 500;
+    break-inside: avoid;
+    page-break-inside: avoid;
+}
+
+/* --- Print Stylesheet Configurations --- */
+@media print {
+    body {
+        background-color: #ffffff;
+        color: #000000;
+        font-size: 11pt;
+    }
+
+    .container {
+        max-width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+    @page {
+        size: A4;
+        margin: 20mm 20mm 20mm 20mm;
+    }
+
+    /* Prevent clipping and weird spacing in print */
+    .cover-page {
+        min-height: 95vh;
+    }
+
+    .screenshot-card, .metadata-card, .callout-box, pre, blockquote, .img-container {
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+    }
+
+    /* Print color properties adjustments */
+    .metadata-card {
+        background-color: #f8fafc !important;
+        border-left: 5px solid #059669 !important;
+    }
+
+    .callout-box {
+        background-color: #f0fdf4 !important;
+        border-left: 5px solid #10b981 !important;
+    }
+
+    .cover-github {
+        background-color: #ecfdf5 !important;
+        border: 1px solid #10b981 !important;
+    }
 }
 
     </style>
@@ -276,36 +497,92 @@ author: Shayan Muhammad, Umar Farooq, Owais Ghani Khan
 date: 2026</p>
 <hr />
 <div class="cover-page">
-    <div class="logo">🌲</div>
-    <h1>DeforestAI</h1>
-    <p class="subtitle">AI-Powered Satellite Image Analysis for Forest Conservation</p>
+    <div class="cover-header">
+        <div class="cover-logo-container">🌲</div>
+        <h1 class="cover-title">DeforestAI</h1>
+        <p class="cover-subtitle">AI-Powered Satellite Image Analysis for Forest Conservation</p>
+        <div class="cover-divider"></div>
+    </div>
 
-    <div class="cover-info-container">
-        <div class="academic-details">
-            <p><strong>4th Semester Project</strong></p>
-            <p><strong>CS A Section</strong></p>
-            <p><strong>UET Mardan</strong></p>
-            <br>
-            <p><strong>Supervised by:</strong> Sir Shahzad</p>
+    <div class="cover-info-grid">
+        <div class="metadata-card">
+            <h3>Academic Metadata</h3>
+            <p><strong>Course/Program:</strong> 4th Semester Project (CS A Section)</p>
+            <p><strong>Institution:</strong> University of Engineering & Technology (UET), Mardan</p>
+            <p><strong>Supervisor:</strong> Sir Shahzad</p>
         </div>
-        <div class="authors">
-            <p><strong>Developed by:</strong></p>
-            <p>Shayan Muhammad (24MDBCS557)<br>
-            Umar Farooq (24MDBCS561)<br>
-            Owais Ghani Khan (24MDBCS587)</p>
+        <div class="metadata-card">
+            <h3>Project Authors</h3>
+            <p><strong>Shayan Muhammad</strong> (Reg: 24MDBCS557)</p>
+            <p><strong>Umar Farooq</strong> (Reg: 24MDBCS561)</p>
+            <p><strong>Owais Ghani Khan</strong> (Reg: 24MDBCS587)</p>
         </div>
     </div>
-    <br>
-    <p class="github-link"><strong>GitHub Repository:</strong> <a href="https://github.com/ShayanMuhammad-CS/DEFORESTAI-DETECTION-SYSTEM">DEFORESTAI-DETECTION-SYSTEM</a></p>
+
+    <div class="cover-footer">
+        <a href="https://github.com/ShayanMuhammad-CS/DEFORESTAI-DETECTION-SYSTEM" class="cover-github">
+            <span class="cover-github-icon">💻</span> GitHub Repository
+        </a>
+        <p class="cover-date">Session 2024 - 2028 | June 2026</p>
+    </div>
 </div>
 
-<p>\pagebreak</p>
+<div class="page-break"></div>
+
+<div class="toc-container">
+    <h2>Table of Contents</h2>
+    <ul class="toc-list">
+        <li class="toc-item">
+            <span class="toc-title">1. Abstract & Problem Statement</span>
+            <span class="toc-dots"></span>
+            <span class="toc-page">3</span>
+        </li>
+        <li class="toc-item">
+            <span class="toc-title">2. Proposed Solution & System Architecture</span>
+            <span class="toc-dots"></span>
+            <span class="toc-page">3</span>
+        </li>
+        <li class="toc-item">
+            <span class="toc-title">3. Dataset & Preprocessing Pipeline</span>
+            <span class="toc-dots"></span>
+            <span class="toc-page">4</span>
+        </li>
+        <li class="toc-item">
+            <span class="toc-title">4. Deep Learning Model (MobileNetV2)</span>
+            <span class="toc-dots"></span>
+            <span class="toc-page">4</span>
+        </li>
+        <li class="toc-item">
+            <span class="toc-title">5. Model Testing & Results</span>
+            <span class="toc-dots"></span>
+            <span class="toc-page">5</span>
+        </li>
+        <li class="toc-item">
+            <span class="toc-title">6. Explainable AI: Grad-CAM Integration</span>
+            <span class="toc-dots"></span>
+            <span class="toc-page">6</span>
+        </li>
+        <li class="toc-item">
+            <span class="toc-title">7. Application User Interface (Demo Pics)</span>
+            <span class="toc-dots"></span>
+            <span class="toc-page">7</span>
+        </li>
+        <li class="toc-item">
+            <span class="toc-title">8. Conclusion & Future Scope</span>
+            <span class="toc-dots"></span>
+            <span class="toc-page">8</span>
+        </li>
+    </ul>
+</div>
+
+<div class="page-break"></div>
+
 <h2>1. Abstract &amp; Problem Statement</h2>
-<p>Deforestation is a critical driver of climate change, resulting in severe biodiversity loss, disruption of water cycles, and increased greenhouse gas emissions. Traditional methods of monitoring forest health—relying on manual land surveys or basic satellite observation—are incredibly slow, labor-intensive, and prone to human error.</p>
-<p><strong>DeforestAI</strong> provides a powerful, automated technological intervention. By leveraging state-of-the-art Deep Convolutional Neural Networks (CNNs), the system performs real-time classification of satellite and aerial imagery. It instantly distinguishes between healthy, intact forest cover and regions degraded by logging or clearing, enabling conservationists and policymakers to act swiftly.</p>
+<p>Deforestation is a critical driver of global climate change, resulting in severe biodiversity loss, disruption of regional water cycles, and massive increases in greenhouse gas emissions. Traditional methods of monitoring forest health—which rely on manual land surveys or basic visual satellite observation—are incredibly slow, labor-intensive, and prone to human error.</p>
+<p><strong>DeforestAI</strong> provides a powerful, automated technological intervention. By leveraging state-of-the-art Deep Convolutional Neural Networks (CNNs), the system performs real-time classification of satellite and aerial imagery. It instantly distinguishes between healthy, intact forest cover and regions degraded by logging or clearing, enabling conservationists, rangers, and policymakers to act before destruction spreads.</p>
 <hr />
 <h2>2. Proposed Solution &amp; System Architecture</h2>
-<p>The project delivers an end-to-end Machine Learning pipeline integrated into a highly accessible web interface. </p>
+<p>The project delivers an end-to-end Machine Learning pipeline integrated into a highly accessible web-based interface.</p>
 <h3>Architecture Flow</h3>
 <ol>
 <li><strong>Data Ingestion:</strong> High-resolution satellite images are uploaded by the user via the front-end dashboard.</li>
@@ -314,7 +591,8 @@ date: 2026</p>
 <li><strong>Explainability Module:</strong> A custom Grad-CAM algorithm visualizes the AI's focal points, drawing a transparent heatmap over the exact regions that influenced the prediction.</li>
 <li><strong>Interactive Dashboard:</strong> Built with Streamlit and Plotly, the UI displays real-time confidence gauges, metrics, and actionable risk assessments.</li>
 </ol>
-<hr />
+<div class="page-break"></div>
+
 <h2>3. Dataset &amp; Preprocessing Pipeline</h2>
 <p>The system is trained on a highly curated dataset split into two distinct, binary classes:
 - <strong>Class 0 (Deforestation):</strong> Images exhibiting bare soil, logging roads, and sparse canopy.
@@ -332,7 +610,7 @@ date: 2026</p>
 <p>Rather than training a model from scratch, we utilized Transfer Learning, starting with weights pre-trained on ImageNet.</p>
 <ol>
 <li><strong>Phase 1: Feature Extraction (Head Training)</strong></li>
-<li>The MobileNetV2 base was entirely frozen. </li>
+<li>The MobileNetV2 base was entirely frozen.</li>
 <li>A custom classification head (<code>GlobalAveragePooling2D</code> $\rightarrow$ <code>Dense(128, ReLU)</code> $\rightarrow$ <code>BatchNormalization</code> $\rightarrow$ <code>Dropout(0.5)</code> $\rightarrow$ <code>Dense(2, Softmax)</code>) was attached.</li>
 <li>
 <p>The model trained the top layers to map pre-existing feature detectors to our specific deforestation classes.</p>
@@ -344,46 +622,77 @@ date: 2026</p>
 <li>The learning rate was exponentially decayed to <code>1e-4</code>.</li>
 <li>The network fine-tuned its deeply embedded feature extractors specifically for the textures of forests and barren land.</li>
 </ol>
-<hr />
+<div class="page-break"></div>
+
 <h2>5. Model Testing &amp; Results</h2>
 <p>Rigorous evaluation using a split validation dataset proved the model's exceptional capability to correctly identify deforestation threats while minimizing false positives.</p>
 <h3>Training Accuracy &amp; Loss</h3>
 <p>The model demonstrated rapid convergence and high stability across epochs, with minimal divergence between training and validation metrics.</p>
 <div class="img-container">
     <img src="plot_2.png" alt="Model Accuracy Plot">
-    <p><em>Figure 1: Training vs Validation Accuracy over epochs.</em></p>
+    <div class="img-caption">Figure 1: Training vs Validation Accuracy over epochs.</div>
 </div>
 
 <div class="img-container">
     <img src="plot_3.png" alt="Model Loss Plot">
-    <p><em>Figure 2: Training vs Validation Loss showing stable convergence.</em></p>
+    <div class="img-caption">Figure 2: Training vs Validation Loss showing stable convergence.</div>
 </div>
+
+<div class="page-break"></div>
 
 <h3>Confusion Matrix</h3>
 <p>The confusion matrix highlights the precision and recall of the model across the binary classes, showcasing its reliability in field conditions.</p>
-<div class="img-container" style="max-width: 600px; margin: auto;">
+<div class="img-container" style="max-width: 550px; margin: auto;">
     <img src="plot_4.png" alt="Confusion Matrix">
-    <p><em>Figure 3: Confusion Matrix demonstrating classification accuracy across test instances.</em></p>
+    <div class="img-caption">Figure 3: Confusion Matrix demonstrating classification accuracy across test instances.</div>
 </div>
 
 <hr />
 <h2>6. Explainable AI: Grad-CAM Integration</h2>
 <p>One of the standout features of DeforestAI is its commitment to transparent AI. Using <strong>Gradient-weighted Class Activation Mapping (Grad-CAM)</strong>, the system breaks the "black-box" paradigm.</p>
-<p>During inference, <code>tf.GradientTape()</code> calculates gradients flowing into the final convolutional layer. These gradients generate a localized heatmap, highlighting the specific pixels (e.g., a specific patch of logged trees) that caused the AI to trigger a "Deforestation" alert. This builds immense trust with end-users and researchers.</p>
-<hr />
-<h2>7. Application User Interface (Demo Pics)</h2>
-<p>The interactive dashboard enables seamless, real-time predictions with XAI visualization. Below are the functional screenshots of the system in action:</p>
-<div class="img-container">
-    <img src="screenshot_1.png" alt="Demo Pic 1" style="border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 15px;">
-    <img src="screenshot_2.png" alt="Demo Pic 2" style="border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 15px;">
-    <img src="screenshot_3.png" alt="Demo Pic 3" style="border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 15px;">
-    <img src="screenshot_4.png" alt="Demo Pic 4" style="border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 15px;">
-    <img src="screenshot_5.png" alt="Demo Pic 5" style="border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 15px;">
-    <img src="screenshot_6.png" alt="Demo Pic 6" style="border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 15px;">
-    <img src="screenshot_7.png" alt="Demo Pic 7" style="border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 15px;">
+<p>During inference, <code>tf.GradientTape()</code> calculates gradients flowing into the final convolutional layer. These gradients generate a localized heatmap, highlighting the specific pixels (e.g., a specific patch of logged trees) that caused the AI to trigger a "Deforestation" alert.</p>
+<div class="callout-box">
+    <div class="callout-title">💡 Explainable AI (XAI) in Environmental Audits</div>
+    <p class="callout-content">By visualizing why a model made its decision, forestry auditors can instantly verify if the model is tracking genuine canopy clearing or just pathing errors like cloud cover or shadow. This builds immense trust with end-users and researchers.</p>
 </div>
 
-<hr />
+<div class="page-break"></div>
+
+<h2>7. Application User Interface (Demo Pics)</h2>
+<p>The interactive dashboard enables seamless, real-time predictions with XAI visualization. Below are the functional screenshots of the system in action:</p>
+<div class="screenshot-grid">
+    <div class="screenshot-card">
+        <img src="screenshot_1.png" alt="Demo Pic 1">
+        <div class="screenshot-caption">Figure 4.1: Dashboard landing layout and model loading.</div>
+    </div>
+    <div class="screenshot-card">
+        <img src="screenshot_2.png" alt="Demo Pic 2">
+        <div class="screenshot-caption">Figure 4.2: Input controls and custom image upload dialog.</div>
+    </div>
+    <div class="screenshot-card">
+        <img src="screenshot_3.png" alt="Demo Pic 3">
+        <div class="screenshot-caption">Figure 4.3: Model analyzing healthy forest cover with low risk classification.</div>
+    </div>
+    <div class="screenshot-card">
+        <img src="screenshot_4.png" alt="Demo Pic 4">
+        <div class="screenshot-caption">Figure 4.4: High confidence deforestation prediction with alert triggers.</div>
+    </div>
+    <div class="screenshot-card">
+        <img src="screenshot_5.png" alt="Demo Pic 5">
+        <div class="screenshot-caption">Figure 4.5: Grad-CAM activation heatmap pointing out logged forest paths.</div>
+    </div>
+    <div class="screenshot-card">
+        <img src="screenshot_6.png" alt="Demo Pic 6">
+        <div class="screenshot-caption">Figure 4.6: Metrics visualization and inference confidence details.</div>
+    </div>
+    <div class="screenshot-card span-full">
+        <img src="screenshot_7.png" alt="Demo Pic 7">
+        <div class="screenshot-caption">Figure 4.7: Summary reports, statistics panel, and risk assessment indicators.</div>
+    </div>
+</div>
+
+<div class="page-break"></div>
+
 <h2>8. Conclusion &amp; Future Scope</h2>
 <h3>Conclusion</h3>
 <p>DeforestAI successfully demonstrates that lightweight, modern deep learning architectures can be leveraged for high-impact environmental conservation. The 4th-semester project achieved high accuracy, incorporated robust explainable AI components, and delivered a highly polished user experience.</p>
@@ -394,8 +703,8 @@ date: 2026</p>
 <li><strong>Edge Deployment:</strong> Utilizing TensorFlow Lite to run the application natively on drones for offline, on-site field surveys.</li>
 </ul>
 <hr />
-<div class="footer">
-    <p>DeforestAI &copy; 2026 | Developed by Shayan, Umar, and Owais | UET Mardan</p>
+<div class="document-footer">
+    DeforestAI &copy; 2026 | Developed by Shayan, Umar, and Owais | UET Mardan
 </div>
     </div>
 </body>
