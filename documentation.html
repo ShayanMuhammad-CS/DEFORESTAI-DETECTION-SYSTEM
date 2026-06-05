@@ -5,127 +5,196 @@
     <title>DeforestAI - Documentation</title>
     <style>
         /* Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
 
 /* Base Styles */
 body {
     font-family: 'Inter', sans-serif;
-    color: #111827;
-    line-height: 1.7;
+    color: #1f2937;
+    line-height: 1.8;
     margin: 0;
     padding: 0;
-    font-size: 11pt;
+    font-size: 11.5pt;
+    background-color: #ffffff;
 }
 
 /* Typography */
 h1, h2, h3, h4, h5 {
-    color: #064e3b; /* Dark emerald green */
-    font-weight: 700;
-    margin-top: 2em;
-    margin-bottom: 0.5em;
+    font-family: 'Outfit', sans-serif;
+    color: #064e3b; /* Premium Dark Emerald */
+    font-weight: 800;
+    margin-top: 2.2em;
+    margin-bottom: 0.6em;
     letter-spacing: -0.5px;
 }
 
 h1 {
-    font-size: 2.2em;
-    border-bottom: 2px solid #34d399;
+    font-size: 2.5em;
+    border-bottom: 3px solid #10b981;
     padding-bottom: 0.3em;
+    display: inline-block;
 }
 
 h2 {
-    font-size: 1.6em;
-    color: #065f46;
-    border-bottom: 1px solid #a7f3d0;
+    font-size: 1.8em;
+    color: #047857;
+    border-bottom: 2px solid #6ee7b7;
     padding-bottom: 0.3em;
+    margin-top: 1.5em;
 }
 
 h3 {
-    font-size: 1.3em;
+    font-size: 1.4em;
     color: #059669;
+    font-weight: 700;
 }
 
 p {
-    margin-bottom: 1.2em;
+    margin-bottom: 1.3em;
     color: #374151;
+    text-align: justify;
 }
 
 strong {
     color: #064e3b;
-    font-weight: 600;
+    font-weight: 700;
 }
 
 /* Cover Page Styles */
 .cover-page {
     text-align: center;
-    padding-top: 30vh;
+    padding-top: 20vh;
     height: 100vh;
     box-sizing: border-box;
 }
 
 .cover-page .logo {
-    font-size: 5em;
-    margin-bottom: 0.2em;
+    font-size: 6em;
+    margin-bottom: 0.1em;
+    filter: drop-shadow(0px 10px 10px rgba(16, 185, 129, 0.3));
 }
 
 .cover-page h1 {
-    font-size: 4em;
+    font-size: 4.5em;
     color: #064e3b;
     border-bottom: none;
     margin: 0;
     padding: 0;
+    font-weight: 800;
+    letter-spacing: -2px;
 }
 
 .cover-page .subtitle {
-    font-size: 1.5em;
+    font-size: 1.6em;
     color: #059669;
-    margin-top: 0.5em;
-    font-weight: 300;
+    margin-top: 0.2em;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+
+/* Golden Award Badge */
+.award-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+    color: #ffffff;
+    padding: 10px 25px;
+    border-radius: 50px;
+    margin-top: 1.5em;
+    box-shadow: 0 10px 25px rgba(245, 158, 11, 0.4);
+    border: 2px solid #fcd34d;
+}
+
+.award-badge .icon {
+    font-size: 1.4em;
+    vertical-align: middle;
+    margin-right: 8px;
+}
+
+.award-badge .text {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.3em;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-shadow: 0px 2px 4px rgba(0,0,0,0.2);
+    vertical-align: middle;
 }
 
 .cover-page .divider {
-    width: 60px;
-    height: 4px;
-    background-color: #34d399;
-    margin: 2em auto;
-    border-radius: 2px;
+    width: 80px;
+    height: 6px;
+    background: linear-gradient(90deg, #10b981, #047857);
+    margin: 2.5em auto;
+    border-radius: 3px;
 }
 
-.cover-page .author {
-    font-size: 1.2em;
-    font-weight: 600;
+/* Academic & Author Details Layout */
+.cover-info-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 2em;
+}
+
+.cover-page .academic-details, .cover-page .authors {
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    padding: 25px 35px;
+    border-radius: 12px;
+    display: block;
+    width: 35%;
+    max-width: 400px;
+    margin: 0 auto 1.5em auto;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+    text-align: center;
+}
+
+.cover-page .academic-details p, .cover-page .authors p {
+    font-size: 1.1em;
+    margin: 0.3em 0;
+    text-align: center;
     color: #1f2937;
-    margin-bottom: 0;
+    line-height: 1.4;
 }
 
-.cover-page .date {
-    font-size: 1em;
+.cover-page .github-link {
+    margin-top: 3em;
+    font-size: 1.1em;
     color: #6b7280;
-    margin-top: 0.2em;
+}
+.cover-page .github-link a {
+    color: #10b981;
+    text-decoration: none;
+    font-weight: 600;
 }
 
 /* Code Blocks */
 code {
     font-family: 'JetBrains Mono', monospace;
-    background-color: #f3f4f6;
-    color: #065f46;
+    background-color: #ecfdf5;
+    color: #047857;
     padding: 0.2em 0.4em;
     border-radius: 4px;
     font-size: 0.9em;
+    border: 1px solid #a7f3d0;
 }
 
 pre {
-    background-color: #1f2937;
-    color: #f9fafb;
+    background-color: #0f172a;
+    color: #f8fafc;
     padding: 1.5em;
-    border-radius: 8px;
+    border-radius: 10px;
     overflow-x: auto;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    border: 1px solid #1e293b;
 }
 
 pre code {
     background-color: transparent;
     color: inherit;
     padding: 0;
+    border: none;
 }
 
 /* Lists */
@@ -135,39 +204,66 @@ ul, ol {
 }
 
 li {
-    margin-bottom: 0.5em;
+    margin-bottom: 0.6em;
     color: #374151;
+}
+
+li::marker {
+    color: #10b981;
+    font-weight: bold;
 }
 
 /* Blockquotes */
 blockquote {
-    border-left: 4px solid #34d399;
-    background-color: #ecfdf5;
-    margin: 1.5em 0;
-    padding: 1em 1.5em;
-    border-radius: 0 8px 8px 0;
-    color: #065f46;
+    border-left: 5px solid #10b981;
+    background-color: #f0fdf4;
+    margin: 2em 0;
+    padding: 1.5em;
+    border-radius: 0 12px 12px 0;
+    color: #064e3b;
     font-style: italic;
+    font-size: 1.1em;
+    box-shadow: 0 4px 6px rgba(16, 185, 129, 0.05);
 }
 
 /* Footer */
 .footer {
-    margin-top: 4em;
+    margin-top: 5em;
     text-align: center;
-    font-size: 0.85em;
-    color: #9ca3af;
-    border-top: 1px solid #e5e7eb;
-    padding-top: 1.5em;
+    font-size: 0.9em;
+    color: #64748b;
+    border-top: 2px solid #e2e8f0;
+    padding-top: 2em;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 500;
 }
 
-/* Page Break Utility */
-.page-break {
-    page-break-before: always;
+/* Images */
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e2e8f0;
+    transition: transform 0.3s ease;
+}
+
+.img-container {
+    text-align: center;
+    margin: 3em 0;
+}
+
+.img-container p {
+    text-align: center;
+    color: #64748b;
+    font-size: 0.95em;
+    margin-top: 1em;
+    font-style: italic;
 }
 
 /* PDF Specific Margins (if supported by generator) */
 @page {
-    margin: 2cm 2.5cm;
+    margin: 2.5cm 2.5cm;
 }
 
     </style>
@@ -183,100 +279,123 @@ date: 2026</p>
     <div class="logo">🌲</div>
     <h1>DeforestAI</h1>
     <p class="subtitle">AI-Powered Satellite Image Analysis for Forest Conservation</p>
-    <div class="divider"></div>
-    <p class="author">Developed by:</p>
-    <p class="author">Shayan Muhammad (24MDBCS557)<br>
-    Umar Farooq (24MDBCS561)<br>
-    Owais Ghani Khan (24MDBCS587)</p>
-    <p class="date">Final Year Project &middot; 2026</p>
+
+    <div class="cover-info-container">
+        <div class="academic-details">
+            <p><strong>4th Semester Project</strong></p>
+            <p><strong>CS A Section</strong></p>
+            <p><strong>UET Mardan</strong></p>
+            <br>
+            <p><strong>Supervised by:</strong> Sir Shahzad</p>
+        </div>
+        <div class="authors">
+            <p><strong>Developed by:</strong></p>
+            <p>Shayan Muhammad (24MDBCS557)<br>
+            Umar Farooq (24MDBCS561)<br>
+            Owais Ghani Khan (24MDBCS587)</p>
+        </div>
+    </div>
+    <br>
+    <p class="github-link"><strong>GitHub Repository:</strong> <a href="https://github.com/ShayanMuhammad-CS/DEFORESTAI-DETECTION-SYSTEM">DEFORESTAI-DETECTION-SYSTEM</a></p>
 </div>
 
 <p>\pagebreak</p>
-<h2>1. Executive Summary</h2>
-<p>Deforestation is one of the most pressing environmental crises of our time, contributing heavily to climate change and biodiversity loss. <strong>DeforestAI</strong> is an advanced machine learning system that leverages state-of-the-art deep learning to automatically detect deforestation from satellite and aerial imagery. </p>
-<p>By enabling conservationists, governments, and NGOs to monitor forest health at scale and with unprecedented speed, DeforestAI acts as a critical technological intervention in the fight to preserve global forests.</p>
+<h2>1. Abstract &amp; Problem Statement</h2>
+<p>Deforestation is a critical driver of climate change, resulting in severe biodiversity loss, disruption of water cycles, and increased greenhouse gas emissions. Traditional methods of monitoring forest health—relying on manual land surveys or basic satellite observation—are incredibly slow, labor-intensive, and prone to human error.</p>
+<p><strong>DeforestAI</strong> provides a powerful, automated technological intervention. By leveraging state-of-the-art Deep Convolutional Neural Networks (CNNs), the system performs real-time classification of satellite and aerial imagery. It instantly distinguishes between healthy, intact forest cover and regions degraded by logging or clearing, enabling conservationists and policymakers to act swiftly.</p>
 <hr />
-<h2>2. System Architecture</h2>
-<p>The DeforestAI system is composed of two primary components:
-1. <strong>The Core AI Model:</strong> A fine-tuned MobileNetV2 Convolutional Neural Network (CNN) trained specifically on top-down satellite imagery to classify land into "Deforested" or "Healthy Forest" regions.
-2. <strong>The Production Interface:</strong> A robust, real-time web application built with Streamlit, Plotly, and TensorFlow, enabling non-technical users to upload satellite images and receive instant, interpretable AI diagnostics.</p>
-<h3>High-Level Data Flow</h3>
+<h2>2. Proposed Solution &amp; System Architecture</h2>
+<p>The project delivers an end-to-end Machine Learning pipeline integrated into a highly accessible web interface. </p>
+<h3>Architecture Flow</h3>
 <ol>
-<li><strong>Input:</strong> User uploads a high-resolution satellite or aerial image (JPG, PNG).</li>
-<li><strong>Preprocessing:</strong> Image is automatically rescaled to <code>128x128</code> pixels and converted to raw RGB arrays.</li>
-<li><strong>Inference:</strong> The AI model processes the image to compute class probabilities.</li>
-<li><strong>Explainability:</strong> The system generates a Gradient-weighted Class Activation Mapping (Grad-CAM) heatmap.</li>
-<li><strong>Output:</strong> The UI presents the verdict, confidence scores, and visual overlays highlighting critical regions.</li>
+<li><strong>Data Ingestion:</strong> High-resolution satellite images are uploaded by the user via the front-end dashboard.</li>
+<li><strong>Preprocessing Engine:</strong> Images undergo automated normalization, resizing (<code>128x128x3</code>), and tensor conversion.</li>
+<li><strong>Deep Learning Inference:</strong> The fine-tuned MobileNetV2 architecture computes probabilistic classifications.</li>
+<li><strong>Explainability Module:</strong> A custom Grad-CAM algorithm visualizes the AI's focal points, drawing a transparent heatmap over the exact regions that influenced the prediction.</li>
+<li><strong>Interactive Dashboard:</strong> Built with Streamlit and Plotly, the UI displays real-time confidence gauges, metrics, and actionable risk assessments.</li>
 </ol>
 <hr />
-<h2>3. Data Processing &amp; Augmentation</h2>
-<p>High-quality data is the lifeblood of deep learning. The dataset is organized into two distinct classes:
-- <code>Deforestation</code> (Class 0): Characterized by bare soil, logging roads, or reduced canopy density.
-- <code>No Deforestation</code> (Class 1): Intact, dense forest cover with continuous canopy.</p>
-<h3>Preprocessing</h3>
-<p>All images are uniformly resized to <code>128x128x3</code> (RGB) to match the input requirements of the neural network. A <code>Rescaling</code> layer of <code>1./255</code> is embedded directly into the neural network graph to normalize pixel values from <code>[0, 255]</code> to <code>[0, 1]</code>.</p>
-<h3>Data Augmentation</h3>
-<p>To improve the model's generalization capabilities and prevent overfitting on a limited dataset, we apply real-time data augmentation during the training pipeline:
-- <strong>Random Flips:</strong> Horizontal and vertical mirroring.
-- <strong>Random Rotations:</strong> Up to 20% rotation.
-- <strong>Random Zoom &amp; Contrast:</strong> Adjusting scale and contrast up to 20%.</p>
+<h2>3. Dataset &amp; Preprocessing Pipeline</h2>
+<p>The system is trained on a highly curated dataset split into two distinct, binary classes:
+- <strong>Class 0 (Deforestation):</strong> Images exhibiting bare soil, logging roads, and sparse canopy.
+- <strong>Class 1 (No Deforestation):</strong> Images showing continuous, dense foliage and high biomass signatures.</p>
+<h3>Augmentation Strategy</h3>
+<p>To prevent model overfitting and simulate diverse environmental conditions, the data pipeline utilizes a real-time <code>tf.keras.Sequential</code> augmentation layer. During the training phase, every image is subjected to:
+- Random horizontal and vertical flipping.
+- Random zooming (up to 30%).
+- Random rotations (up to 30%).
+- Contrast adjustments (up to 30%).</p>
 <hr />
-<h2>4. Deep Learning Model Architecture</h2>
-<p>DeforestAI utilizes <strong>MobileNetV2</strong> as its foundational backbone—chosen for its exceptional balance between high accuracy and computational efficiency, making it ideal for real-time deployment.</p>
-<h3>Two-Phase Fine-Tuning Strategy</h3>
-<p>Training was conducted using a rigorous, two-phase transfer learning methodology to preserve pre-trained ImageNet features while adapting the model to specific environmental topographies.</p>
-<p><strong>Phase 1: Feature Extraction</strong>
-- <strong>Base Model:</strong> MobileNetV2 (frozen).
-- <strong>Head:</strong> GlobalAveragePooling2D $\rightarrow$ Dense(128, ReLU) $\rightarrow$ BatchNormalization $\rightarrow$ Dropout(0.4) $\rightarrow$ Dense(2, Softmax).
-- <strong>Optimization:</strong> Adam optimizer with learning rate of <code>1e-3</code>.
-- <strong>Duration:</strong> 10 epochs.</p>
-<p><strong>Phase 2: Fine-Tuning</strong>
-- <strong>Process:</strong> The top 50 layers of the MobileNetV2 base model are unfrozen to allow fine-grained adaptation to the specific textures of foliage and bare land.
-- <strong>Optimization:</strong> Learning rate drastically reduced to <code>1e-4</code> to prevent destructive updates.
-- <strong>Duration:</strong> 20 epochs.</p>
-<p><em>Training utilized an advanced custom callback system (<code>BestModelSaver</code>) leveraging pure NumPy memory management to ensure the most robust model weights were perfectly restored without serialization errors.</em></p>
+<h2>4. Deep Learning Model (MobileNetV2)</h2>
+<p>The core brain of DeforestAI is built upon <strong>MobileNetV2</strong>. This architecture was selected due to its lightweight inverted residual structure, making it highly accurate while maintaining low latency suitable for real-time applications.</p>
+<h3>Two-Phase Transfer Learning Strategy</h3>
+<p>Rather than training a model from scratch, we utilized Transfer Learning, starting with weights pre-trained on ImageNet.</p>
+<ol>
+<li><strong>Phase 1: Feature Extraction (Head Training)</strong></li>
+<li>The MobileNetV2 base was entirely frozen. </li>
+<li>A custom classification head (<code>GlobalAveragePooling2D</code> $\rightarrow$ <code>Dense(128, ReLU)</code> $\rightarrow$ <code>BatchNormalization</code> $\rightarrow$ <code>Dropout(0.5)</code> $\rightarrow$ <code>Dense(2, Softmax)</code>) was attached.</li>
+<li>
+<p>The model trained the top layers to map pre-existing feature detectors to our specific deforestation classes.</p>
+</li>
+<li>
+<p><strong>Phase 2: Fine-Tuning</strong></p>
+</li>
+<li>The top 50 layers of the MobileNetV2 base were unfrozen.</li>
+<li>The learning rate was exponentially decayed to <code>1e-4</code>.</li>
+<li>The network fine-tuned its deeply embedded feature extractors specifically for the textures of forests and barren land.</li>
+</ol>
 <hr />
-<h2>5. Application Interface</h2>
-<p>The front-end is powered by <strong>Streamlit</strong>, deeply customized with CSS to provide a premium, dark-green environmental aesthetic. </p>
-<h3>Key Features</h3>
+<h2>5. Model Testing &amp; Results</h2>
+<p>Rigorous evaluation using a split validation dataset proved the model's exceptional capability to correctly identify deforestation threats while minimizing false positives.</p>
+<h3>Training Accuracy &amp; Loss</h3>
+<p>The model demonstrated rapid convergence and high stability across epochs, with minimal divergence between training and validation metrics.</p>
+<div class="img-container">
+    <img src="plot_2.png" alt="Model Accuracy Plot">
+    <p><em>Figure 1: Training vs Validation Accuracy over epochs.</em></p>
+</div>
+
+<div class="img-container">
+    <img src="plot_3.png" alt="Model Loss Plot">
+    <p><em>Figure 2: Training vs Validation Loss showing stable convergence.</em></p>
+</div>
+
+<h3>Confusion Matrix</h3>
+<p>The confusion matrix highlights the precision and recall of the model across the binary classes, showcasing its reliability in field conditions.</p>
+<div class="img-container" style="max-width: 600px; margin: auto;">
+    <img src="plot_4.png" alt="Confusion Matrix">
+    <p><em>Figure 3: Confusion Matrix demonstrating classification accuracy across test instances.</em></p>
+</div>
+
+<hr />
+<h2>6. Explainable AI: Grad-CAM Integration</h2>
+<p>One of the standout features of DeforestAI is its commitment to transparent AI. Using <strong>Gradient-weighted Class Activation Mapping (Grad-CAM)</strong>, the system breaks the "black-box" paradigm.</p>
+<p>During inference, <code>tf.GradientTape()</code> calculates gradients flowing into the final convolutional layer. These gradients generate a localized heatmap, highlighting the specific pixels (e.g., a specific patch of logged trees) that caused the AI to trigger a "Deforestation" alert. This builds immense trust with end-users and researchers.</p>
+<hr />
+<h2>7. Application User Interface (Demo Pics)</h2>
+<p>The interactive dashboard enables seamless, real-time predictions with XAI visualization. Below are the functional screenshots of the system in action:</p>
+<div class="img-container">
+    <img src="screenshot_1.png" alt="Demo Pic 1" style="border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 15px;">
+    <img src="screenshot_2.png" alt="Demo Pic 2" style="border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 15px;">
+    <img src="screenshot_3.png" alt="Demo Pic 3" style="border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 15px;">
+    <img src="screenshot_4.png" alt="Demo Pic 4" style="border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 15px;">
+    <img src="screenshot_5.png" alt="Demo Pic 5" style="border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 15px;">
+    <img src="screenshot_6.png" alt="Demo Pic 6" style="border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 15px;">
+    <img src="screenshot_7.png" alt="Demo Pic 7" style="border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 15px;">
+</div>
+
+<hr />
+<h2>8. Conclusion &amp; Future Scope</h2>
+<h3>Conclusion</h3>
+<p>DeforestAI successfully demonstrates that lightweight, modern deep learning architectures can be leveraged for high-impact environmental conservation. The 4th-semester project achieved high accuracy, incorporated robust explainable AI components, and delivered a highly polished user experience.</p>
+<h3>Future Scope</h3>
 <ul>
-<li><strong>Interactive Dashboard:</strong> Upload interfaces equipped with dynamic statistics and meta-data extraction.</li>
-<li><strong>Real-Time Analytics:</strong> Powered by <code>Plotly</code> gauge charts and horizontal bar graphs, communicating AI confidence clearly.</li>
-<li><strong>Model Transparency:</strong> A dedicated Model Information page parsing the exact architecture and parameters directly from the loaded <code>deforestation.h5</code> model.</li>
+<li><strong>Multi-Class Segmentation:</strong> Upgrading the model from image classification to pixel-wise semantic segmentation to calculate exact areas of deforested land.</li>
+<li><strong>Live Satellite API Integration:</strong> Connecting the backend to services like Sentinel-2 or Google Earth Engine for automated, continuous global monitoring.</li>
+<li><strong>Edge Deployment:</strong> Utilizing TensorFlow Lite to run the application natively on drones for offline, on-site field surveys.</li>
 </ul>
 <hr />
-<h2>6. AI Explainability: Grad-CAM</h2>
-<p>Deep learning models are notoriously "black boxes." To build trust with conservationists, DeforestAI features a custom implementation of <strong>Gradient-weighted Class Activation Mapping (Grad-CAM)</strong>.</p>
-<h3>How It Works:</h3>
-<ol>
-<li>The AI extracts feature maps from the final convolutional layer (the input to the GlobalAveragePooling layer).</li>
-<li><code>tf.GradientTape()</code> calculates the gradients of the predicted class score with respect to these feature maps.</li>
-<li>The gradients are pooled and used to weight the feature maps, highlighting the specific regions of the input image that most heavily influenced the AI's final decision.</li>
-<li>This heatmap is colorized using a highly optimized, pure-NumPy Jet colormap and superimposed transparently over the original satellite imagery.</li>
-</ol>
-<hr />
-<h2>7. Setup &amp; Execution Guide</h2>
-<h3>Prerequisites</h3>
-<p>Ensure your environment meets the dependencies specified in <code>requirements.txt</code>:</p>
-<div class="codehilite"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
-</code></pre></div>
-
-<p><em>(Key libraries: <code>tensorflow&gt;=2.13.0</code>, <code>streamlit&gt;=1.32.0</code>, <code>plotly</code>, <code>pillow</code>)</em></p>
-<h3>Retraining the Model</h3>
-<p>To re-run the 2-phase neural network training with your own dataset:</p>
-<div class="codehilite"><pre><span></span><code>python<span class="w"> </span>retrain.py<span class="w"> </span>--data<span class="w"> </span><span class="s2">&quot;/path/to/your/dataset&quot;</span>
-</code></pre></div>
-
-<p>The script will output <code>deforestation.h5</code> containing the optimal weights.</p>
-<h3>Launching the Application</h3>
-<p>To start the interactive detection interface:</p>
-<div class="codehilite"><pre><span></span><code>streamlit<span class="w"> </span>run<span class="w"> </span>app.py
-</code></pre></div>
-
-<p>Access the application locally via your browser at <code>http://localhost:8501</code>.</p>
-<hr />
 <div class="footer">
-    <p>DeforestAI Documentation &copy; 2026. Designed for Environmental Impact.</p>
+    <p>DeforestAI &copy; 2026 | Developed by Shayan, Umar, and Owais | UET Mardan</p>
 </div>
     </div>
 </body>

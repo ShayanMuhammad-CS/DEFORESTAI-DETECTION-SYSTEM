@@ -8,125 +8,145 @@ date: 2026
     <div class="logo">🌲</div>
     <h1>DeforestAI</h1>
     <p class="subtitle">AI-Powered Satellite Image Analysis for Forest Conservation</p>
-    <div class="divider"></div>
-    <p class="author">Developed by:</p>
-    <p class="author">Shayan Muhammad (24MDBCS557)<br>
-    Umar Farooq (24MDBCS561)<br>
-    Owais Ghani Khan (24MDBCS587)</p>
-    <p class="date">Final Year Project &middot; 2026</p>
+    
+    <div class="cover-info-container">
+        <div class="academic-details">
+            <p><strong>4th Semester Project</strong></p>
+            <p><strong>CS A Section</strong></p>
+            <p><strong>UET Mardan</strong></p>
+            <br>
+            <p><strong>Supervised by:</strong> Sir Shahzad</p>
+        </div>
+        <div class="authors">
+            <p><strong>Developed by:</strong></p>
+            <p>Shayan Muhammad (24MDBCS557)<br>
+            Umar Farooq (24MDBCS561)<br>
+            Owais Ghani Khan (24MDBCS587)</p>
+        </div>
+    </div>
+    <br>
+    <p class="github-link"><strong>GitHub Repository:</strong> <a href="https://github.com/ShayanMuhammad-CS/DEFORESTAI-DETECTION-SYSTEM">DEFORESTAI-DETECTION-SYSTEM</a></p>
 </div>
 
 \pagebreak
 
-## 1. Executive Summary
+## 1. Abstract & Problem Statement
 
-Deforestation is one of the most pressing environmental crises of our time, contributing heavily to climate change and biodiversity loss. **DeforestAI** is an advanced machine learning system that leverages state-of-the-art deep learning to automatically detect deforestation from satellite and aerial imagery. 
+Deforestation is a critical driver of climate change, resulting in severe biodiversity loss, disruption of water cycles, and increased greenhouse gas emissions. Traditional methods of monitoring forest health—relying on manual land surveys or basic satellite observation—are incredibly slow, labor-intensive, and prone to human error.
 
-By enabling conservationists, governments, and NGOs to monitor forest health at scale and with unprecedented speed, DeforestAI acts as a critical technological intervention in the fight to preserve global forests.
-
----
-
-## 2. System Architecture
-
-The DeforestAI system is composed of two primary components:
-1. **The Core AI Model:** A fine-tuned MobileNetV2 Convolutional Neural Network (CNN) trained specifically on top-down satellite imagery to classify land into "Deforested" or "Healthy Forest" regions.
-2. **The Production Interface:** A robust, real-time web application built with Streamlit, Plotly, and TensorFlow, enabling non-technical users to upload satellite images and receive instant, interpretable AI diagnostics.
-
-### High-Level Data Flow
-1. **Input:** User uploads a high-resolution satellite or aerial image (JPG, PNG).
-2. **Preprocessing:** Image is automatically rescaled to `128x128` pixels and converted to raw RGB arrays.
-3. **Inference:** The AI model processes the image to compute class probabilities.
-4. **Explainability:** The system generates a Gradient-weighted Class Activation Mapping (Grad-CAM) heatmap.
-5. **Output:** The UI presents the verdict, confidence scores, and visual overlays highlighting critical regions.
+**DeforestAI** provides a powerful, automated technological intervention. By leveraging state-of-the-art Deep Convolutional Neural Networks (CNNs), the system performs real-time classification of satellite and aerial imagery. It instantly distinguishes between healthy, intact forest cover and regions degraded by logging or clearing, enabling conservationists and policymakers to act swiftly.
 
 ---
 
-## 3. Data Processing & Augmentation
+## 2. Proposed Solution & System Architecture
 
-High-quality data is the lifeblood of deep learning. The dataset is organized into two distinct classes:
-- `Deforestation` (Class 0): Characterized by bare soil, logging roads, or reduced canopy density.
-- `No Deforestation` (Class 1): Intact, dense forest cover with continuous canopy.
+The project delivers an end-to-end Machine Learning pipeline integrated into a highly accessible web interface. 
 
-### Preprocessing
-All images are uniformly resized to `128x128x3` (RGB) to match the input requirements of the neural network. A `Rescaling` layer of `1./255` is embedded directly into the neural network graph to normalize pixel values from `[0, 255]` to `[0, 1]`.
-
-### Data Augmentation
-To improve the model's generalization capabilities and prevent overfitting on a limited dataset, we apply real-time data augmentation during the training pipeline:
-- **Random Flips:** Horizontal and vertical mirroring.
-- **Random Rotations:** Up to 20% rotation.
-- **Random Zoom & Contrast:** Adjusting scale and contrast up to 20%.
+### Architecture Flow
+1. **Data Ingestion:** High-resolution satellite images are uploaded by the user via the front-end dashboard.
+2. **Preprocessing Engine:** Images undergo automated normalization, resizing (`128x128x3`), and tensor conversion.
+3. **Deep Learning Inference:** The fine-tuned MobileNetV2 architecture computes probabilistic classifications.
+4. **Explainability Module:** A custom Grad-CAM algorithm visualizes the AI's focal points, drawing a transparent heatmap over the exact regions that influenced the prediction.
+5. **Interactive Dashboard:** Built with Streamlit and Plotly, the UI displays real-time confidence gauges, metrics, and actionable risk assessments.
 
 ---
 
-## 4. Deep Learning Model Architecture
+## 3. Dataset & Preprocessing Pipeline
 
-DeforestAI utilizes **MobileNetV2** as its foundational backbone—chosen for its exceptional balance between high accuracy and computational efficiency, making it ideal for real-time deployment.
+The system is trained on a highly curated dataset split into two distinct, binary classes:
+- **Class 0 (Deforestation):** Images exhibiting bare soil, logging roads, and sparse canopy.
+- **Class 1 (No Deforestation):** Images showing continuous, dense foliage and high biomass signatures.
 
-### Two-Phase Fine-Tuning Strategy
-Training was conducted using a rigorous, two-phase transfer learning methodology to preserve pre-trained ImageNet features while adapting the model to specific environmental topographies.
-
-**Phase 1: Feature Extraction**
-- **Base Model:** MobileNetV2 (frozen).
-- **Head:** GlobalAveragePooling2D $\rightarrow$ Dense(128, ReLU) $\rightarrow$ BatchNormalization $\rightarrow$ Dropout(0.4) $\rightarrow$ Dense(2, Softmax).
-- **Optimization:** Adam optimizer with learning rate of `1e-3`.
-- **Duration:** 10 epochs.
-
-**Phase 2: Fine-Tuning**
-- **Process:** The top 50 layers of the MobileNetV2 base model are unfrozen to allow fine-grained adaptation to the specific textures of foliage and bare land.
-- **Optimization:** Learning rate drastically reduced to `1e-4` to prevent destructive updates.
-- **Duration:** 20 epochs.
-
-*Training utilized an advanced custom callback system (`BestModelSaver`) leveraging pure NumPy memory management to ensure the most robust model weights were perfectly restored without serialization errors.*
+### Augmentation Strategy
+To prevent model overfitting and simulate diverse environmental conditions, the data pipeline utilizes a real-time `tf.keras.Sequential` augmentation layer. During the training phase, every image is subjected to:
+- Random horizontal and vertical flipping.
+- Random zooming (up to 30%).
+- Random rotations (up to 30%).
+- Contrast adjustments (up to 30%).
 
 ---
 
-## 5. Application Interface
+## 4. Deep Learning Model (MobileNetV2)
 
-The front-end is powered by **Streamlit**, deeply customized with CSS to provide a premium, dark-green environmental aesthetic. 
+The core brain of DeforestAI is built upon **MobileNetV2**. This architecture was selected due to its lightweight inverted residual structure, making it highly accurate while maintaining low latency suitable for real-time applications.
 
-### Key Features
-- **Interactive Dashboard:** Upload interfaces equipped with dynamic statistics and meta-data extraction.
-- **Real-Time Analytics:** Powered by `Plotly` gauge charts and horizontal bar graphs, communicating AI confidence clearly.
-- **Model Transparency:** A dedicated Model Information page parsing the exact architecture and parameters directly from the loaded `deforestation.h5` model.
+### Two-Phase Transfer Learning Strategy
+Rather than training a model from scratch, we utilized Transfer Learning, starting with weights pre-trained on ImageNet.
 
----
+1. **Phase 1: Feature Extraction (Head Training)**
+   - The MobileNetV2 base was entirely frozen. 
+   - A custom classification head (`GlobalAveragePooling2D` $\rightarrow$ `Dense(128, ReLU)` $\rightarrow$ `BatchNormalization` $\rightarrow$ `Dropout(0.5)` $\rightarrow$ `Dense(2, Softmax)`) was attached.
+   - The model trained the top layers to map pre-existing feature detectors to our specific deforestation classes.
 
-## 6. AI Explainability: Grad-CAM
-
-Deep learning models are notoriously "black boxes." To build trust with conservationists, DeforestAI features a custom implementation of **Gradient-weighted Class Activation Mapping (Grad-CAM)**.
-
-### How It Works:
-1. The AI extracts feature maps from the final convolutional layer (the input to the GlobalAveragePooling layer).
-2. `tf.GradientTape()` calculates the gradients of the predicted class score with respect to these feature maps.
-3. The gradients are pooled and used to weight the feature maps, highlighting the specific regions of the input image that most heavily influenced the AI's final decision.
-4. This heatmap is colorized using a highly optimized, pure-NumPy Jet colormap and superimposed transparently over the original satellite imagery.
+2. **Phase 2: Fine-Tuning**
+   - The top 50 layers of the MobileNetV2 base were unfrozen.
+   - The learning rate was exponentially decayed to `1e-4`.
+   - The network fine-tuned its deeply embedded feature extractors specifically for the textures of forests and barren land.
 
 ---
 
-## 7. Setup & Execution Guide
+## 5. Model Testing & Results
 
-### Prerequisites
-Ensure your environment meets the dependencies specified in `requirements.txt`:
-```bash
-pip install -r requirements.txt
-```
-*(Key libraries: `tensorflow>=2.13.0`, `streamlit>=1.32.0`, `plotly`, `pillow`)*
+Rigorous evaluation using a split validation dataset proved the model's exceptional capability to correctly identify deforestation threats while minimizing false positives.
 
-### Retraining the Model
-To re-run the 2-phase neural network training with your own dataset:
-```bash
-python retrain.py --data "/path/to/your/dataset"
-```
-The script will output `deforestation.h5` containing the optimal weights.
+### Training Accuracy & Loss
+The model demonstrated rapid convergence and high stability across epochs, with minimal divergence between training and validation metrics.
 
-### Launching the Application
-To start the interactive detection interface:
-```bash
-streamlit run app.py
-```
-Access the application locally via your browser at `http://localhost:8501`.
+<div class="img-container">
+    <img src="plot_2.png" alt="Model Accuracy Plot">
+    <p><em>Figure 1: Training vs Validation Accuracy over epochs.</em></p>
+</div>
+
+<div class="img-container">
+    <img src="plot_3.png" alt="Model Loss Plot">
+    <p><em>Figure 2: Training vs Validation Loss showing stable convergence.</em></p>
+</div>
+
+### Confusion Matrix
+The confusion matrix highlights the precision and recall of the model across the binary classes, showcasing its reliability in field conditions.
+
+<div class="img-container" style="max-width: 600px; margin: auto;">
+    <img src="plot_4.png" alt="Confusion Matrix">
+    <p><em>Figure 3: Confusion Matrix demonstrating classification accuracy across test instances.</em></p>
+</div>
+
+---
+
+## 6. Explainable AI: Grad-CAM Integration
+
+One of the standout features of DeforestAI is its commitment to transparent AI. Using **Gradient-weighted Class Activation Mapping (Grad-CAM)**, the system breaks the "black-box" paradigm.
+
+During inference, `tf.GradientTape()` calculates gradients flowing into the final convolutional layer. These gradients generate a localized heatmap, highlighting the specific pixels (e.g., a specific patch of logged trees) that caused the AI to trigger a "Deforestation" alert. This builds immense trust with end-users and researchers.
+
+---
+
+## 7. Application User Interface (Demo Pics)
+
+The interactive dashboard enables seamless, real-time predictions with XAI visualization. Below are the functional screenshots of the system in action:
+
+<div class="img-container">
+    <img src="screenshot_1.png" alt="Demo Pic 1" style="border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 15px;">
+    <img src="screenshot_2.png" alt="Demo Pic 2" style="border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 15px;">
+    <img src="screenshot_3.png" alt="Demo Pic 3" style="border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 15px;">
+    <img src="screenshot_4.png" alt="Demo Pic 4" style="border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 15px;">
+    <img src="screenshot_5.png" alt="Demo Pic 5" style="border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 15px;">
+    <img src="screenshot_6.png" alt="Demo Pic 6" style="border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 15px;">
+    <img src="screenshot_7.png" alt="Demo Pic 7" style="border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 15px;">
+</div>
+
+---
+
+## 8. Conclusion & Future Scope
+
+### Conclusion
+DeforestAI successfully demonstrates that lightweight, modern deep learning architectures can be leveraged for high-impact environmental conservation. The 4th-semester project achieved high accuracy, incorporated robust explainable AI components, and delivered a highly polished user experience.
+
+### Future Scope
+- **Multi-Class Segmentation:** Upgrading the model from image classification to pixel-wise semantic segmentation to calculate exact areas of deforested land.
+- **Live Satellite API Integration:** Connecting the backend to services like Sentinel-2 or Google Earth Engine for automated, continuous global monitoring.
+- **Edge Deployment:** Utilizing TensorFlow Lite to run the application natively on drones for offline, on-site field surveys.
 
 ---
 <div class="footer">
-    <p>DeforestAI Documentation &copy; 2026. Designed for Environmental Impact.</p>
+    <p>DeforestAI &copy; 2026 | Developed by Shayan, Umar, and Owais | UET Mardan</p>
 </div>
