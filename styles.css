@@ -1,0 +1,165 @@
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
+/* Base Styles */
+body {
+    font-family: 'Inter', sans-serif;
+    color: #111827;
+    line-height: 1.7;
+    margin: 0;
+    padding: 0;
+    font-size: 11pt;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5 {
+    color: #064e3b; /* Dark emerald green */
+    font-weight: 700;
+    margin-top: 2em;
+    margin-bottom: 0.5em;
+    letter-spacing: -0.5px;
+}
+
+h1 {
+    font-size: 2.2em;
+    border-bottom: 2px solid #34d399;
+    padding-bottom: 0.3em;
+}
+
+h2 {
+    font-size: 1.6em;
+    color: #065f46;
+    border-bottom: 1px solid #a7f3d0;
+    padding-bottom: 0.3em;
+}
+
+h3 {
+    font-size: 1.3em;
+    color: #059669;
+}
+
+p {
+    margin-bottom: 1.2em;
+    color: #374151;
+}
+
+strong {
+    color: #064e3b;
+    font-weight: 600;
+}
+
+/* Cover Page Styles */
+.cover-page {
+    text-align: center;
+    padding-top: 30vh;
+    height: 100vh;
+    box-sizing: border-box;
+}
+
+.cover-page .logo {
+    font-size: 5em;
+    margin-bottom: 0.2em;
+}
+
+.cover-page h1 {
+    font-size: 4em;
+    color: #064e3b;
+    border-bottom: none;
+    margin: 0;
+    padding: 0;
+}
+
+.cover-page .subtitle {
+    font-size: 1.5em;
+    color: #059669;
+    margin-top: 0.5em;
+    font-weight: 300;
+}
+
+.cover-page .divider {
+    width: 60px;
+    height: 4px;
+    background-color: #34d399;
+    margin: 2em auto;
+    border-radius: 2px;
+}
+
+.cover-page .author {
+    font-size: 1.2em;
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 0;
+}
+
+.cover-page .date {
+    font-size: 1em;
+    color: #6b7280;
+    margin-top: 0.2em;
+}
+
+/* Code Blocks */
+code {
+    font-family: 'JetBrains Mono', monospace;
+    background-color: #f3f4f6;
+    color: #065f46;
+    padding: 0.2em 0.4em;
+    border-radius: 4px;
+    font-size: 0.9em;
+}
+
+pre {
+    background-color: #1f2937;
+    color: #f9fafb;
+    padding: 1.5em;
+    border-radius: 8px;
+    overflow-x: auto;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+pre code {
+    background-color: transparent;
+    color: inherit;
+    padding: 0;
+}
+
+/* Lists */
+ul, ol {
+    margin-bottom: 1.5em;
+    padding-left: 1.5em;
+}
+
+li {
+    margin-bottom: 0.5em;
+    color: #374151;
+}
+
+/* Blockquotes */
+blockquote {
+    border-left: 4px solid #34d399;
+    background-color: #ecfdf5;
+    margin: 1.5em 0;
+    padding: 1em 1.5em;
+    border-radius: 0 8px 8px 0;
+    color: #065f46;
+    font-style: italic;
+}
+
+/* Footer */
+.footer {
+    margin-top: 4em;
+    text-align: center;
+    font-size: 0.85em;
+    color: #9ca3af;
+    border-top: 1px solid #e5e7eb;
+    padding-top: 1.5em;
+}
+
+/* Page Break Utility */
+.page-break {
+    page-break-before: always;
+}
+
+/* PDF Specific Margins (if supported by generator) */
+@page {
+    margin: 2cm 2.5cm;
+}
